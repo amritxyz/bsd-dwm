@@ -11,12 +11,13 @@ static const struct arg args[] = {
 	/*{ temp, 	"[TEMP %sC] ",	"/sys/class/thermal/thermal_zone0/temp" },*/
 	/*{ datetime, 	" %s ",	"%a %b %d %r" },*/
 	/*{ netspeed_rx,	" %sB/s  ","wlp2s0" },*/
-	/*{ run_command,	" %1s  ","amixer sget Master | awk -F\"[][]\" '/%/ { print $2 }' | head -n1" },*/
-	{ cpu_perc, 	" CPU %s%% ",NULL},
-	{ ram_perc,	" RAM %s%% ",NULL},
-	{ ram_used,	" %s ",	NULL },
-	{ datetime,	" %s ","%a, %B %d"},
-	{ datetime,	" %s ","%I:%M %p"},
-	{ battery_perc,	" %s%%","BAT0"},
-	{ battery_state,"(%s)","BAT0" },
+	/*{ ram_perc,	" %s%% ",NULL},*/
+	{ cpu_perc, 	" Cpu: %s%% |",NULL},
+	{ run_command,	" Vol: %s |","sndioctl -n output.level | sed 's/0\\.//' | sed 's/.$/%/' | sed 's/\\.//'" },
+	{ ram_used,	" Mem: %s/",	NULL },
+	{ ram_total,	"%s |",	NULL },
+	{ battery_perc,	" Bat: %s%%","BAT0"},
+	{ battery_state,"%s |","BAT0" },
+	{ datetime,	" %s,","%b %d"},
+	{ datetime,	" %s ","%I:%M"},
 };
