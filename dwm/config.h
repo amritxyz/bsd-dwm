@@ -221,7 +221,7 @@ static const Key keys[] = {
 	{ 0,				XK_F2,		spawn,		SHCMD("sndioctl output.level=-0.03") },
 	{ 0,				XK_F1,		spawn,		SHCMD("sndioctl output.level=0.03") },
 	{ ALTKEY|ShiftMask,		XK_r,		spawn,		{.v = (const char*[]){ TERMINAL, "-e", "doas", "reboot", NULL } } },
-	{ ALTKEY|ShiftMask,		XK_d,		spawn,		{.v = (const char*[]){ TERMINAL, "-e", "doas", "shutdown", "now",  NULL } } },
+	{ ALTKEY|ShiftMask,		XK_d,		spawn,		{.v = (const char*[]){ TERMINAL, "-e", "doas", "shutdown", "-p", "now",  NULL } } },
 
 	{ MODKEY,			XK_Left,	focusmon,	{.i = -1 } },
 	{ MODKEY|ShiftMask,		XK_Left,	tagmon,		{.i = -1 } },
