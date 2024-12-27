@@ -158,7 +158,7 @@ static const Key keys[] = {
 	{ MODKEY,			XK_q,		killclient,	{0} },
 	{ MODKEY|ShiftMask,	        XK_q,      	quit,           {0} },
 	{ MODKEY,			XK_w,		spawn,		{.v = (const char*[]){ BROWSER, NULL } } },
-	{ MODKEY,			XK_p,		spawn,		{.v = (const char*[]){ TERMINAL, "-e", "doas", "cmixer", NULL } } },
+	{ MODKEY,			XK_p,		spawn,		{.v = (const char*[]){ TERMINAL, "-e", "cmixer", NULL } } },
 	{ MODKEY,			XK_Escape,	spawn,		{.v = (const char*[]){ TERMINAL, "-e", "htop", NULL } } },
 	//{ MODKEY|ShiftMask,		XK_backslash,	spawn,		{.v = (const char*[]){ TERMINAL, "-e", "lf", NULL } } },
 	{ MODKEY,                       XK_r,  	   	togglefloating, {0} },
