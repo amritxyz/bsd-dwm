@@ -232,7 +232,6 @@ static void resizeclient(Client *c, int x, int y, int w, int h);
 static void resizemouse(const Arg *arg);
 static void restack(Monitor *m);
 static void run(void);
-static void runAutostart(void);
 static void scan(void);
 static int sendevent(Client *c, Atom proto);
 static void sendmon(Client *c, Monitor *m);
@@ -293,8 +292,6 @@ static pid_t winpid(Window w);
 static const char broken[] = "broken";
 static char stext[256];
 static char rawstext[256];
-static int dwmblockssig;
-pid_t dwmblockspid = 0;
 static int screen;
 static int sw, sh;           /* X display screen geometry width, height */
 static int bh;               /* bar height */
@@ -578,7 +575,6 @@ buttonpress(XEvent *e)
 			char *text = rawstext;
 			int i = -1;
 			char ch;
-			dwmblockssig = 0;
 			while (text[++i]) {
 				if ((unsigned char)text[i] < ' ') {
 					ch = text[i];
@@ -588,7 +584,6 @@ buttonpress(XEvent *e)
 					text += i+1;
 					i = -1;
 					if (x >= ev->x) break;
-					dwmblockssig = ch;
 				}
 			}
 		} else
@@ -1595,11 +1590,6 @@ run(void)
 	while (running && !XNextEvent(dpy, &ev))
 		if (handler[ev.type])
 			handler[ev.type](&ev); /* call handler */
-}
-
-void
-runAutostart(void) {
-	system("killall -q dwmblocks; dwmblocks &");
 }
 
 void
@@ -2663,7 +2653,6 @@ main(int argc, char *argv[])
 		die("pledge");
 #endif /* __OpenBSD__ */
 	scan();
-	runAutostart();
 	run();
 	if(restart) execvp(argv[0], argv);
 	cleanup();
