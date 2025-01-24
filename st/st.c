@@ -24,7 +24,6 @@
  #include <pty.h>
 #elif defined(__OpenBSD__) || defined(__NetBSD__) || defined(__APPLE__)
  #include <util.h>
- #include <unistd.h>
 #elif defined(__FreeBSD__) || defined(__DragonFly__)
  #include <libutil.h>
 #endif
