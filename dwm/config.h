@@ -4,6 +4,7 @@
 #define TERMINAL "st"
 #define TERMCLASS "St"
 #define BROWSER "firefox"
+#define TORR "deluge-gtk"
 
 /* appearance */
 static unsigned int borderpx  = 3;        // border pixel of windows
@@ -158,6 +159,7 @@ static const Key keys[] = {
 	{ MODKEY,			XK_q,		killclient,	{0} },
 	{ MODKEY|ShiftMask,	        XK_q,      	quit,           {0} },
 	{ MODKEY,			XK_w,		spawn,		{.v = (const char*[]){ BROWSER, NULL } } },
+	{ MODKEY,			XK_e,		spawn,		{.v = (const char*[]){ TORR, NULL } } },
 	{ MODKEY,			XK_p,		spawn,		{.v = (const char*[]){ TERMINAL, "-e", "cmixer", NULL } } },
 	{ MODKEY,			XK_Escape,	spawn,		{.v = (const char*[]){ TERMINAL, "-e", "top", "-s", "1", NULL } } },
 	//{ MODKEY|ShiftMask,		XK_backslash,	spawn,		{.v = (const char*[]){ TERMINAL, "-e", "lf", NULL } } },
